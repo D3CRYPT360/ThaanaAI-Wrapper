@@ -81,7 +81,9 @@ export default function App() {
           allowsBackForwardNavigationGestures={true} // Enables swipe gestures on iOS
           onNavigationStateChange={(navState) =>
             setCanGoBack(navState.canGoBack)
-          } // Track back navigation state
+          }
+          // Google OAuth fix for WebView.
+          // Due to Google OAuth not working in WebView, we need to set a user agent.
           userAgent={
             Platform.OS === "android"
               ? "Chrome/18.0.1025.133 Mobile Safari/535.19"
